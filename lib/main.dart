@@ -1,3 +1,4 @@
+import 'package:dumplingdelights/Screens/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/LoginScreen.dart';
@@ -30,7 +31,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -115,3 +115,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
