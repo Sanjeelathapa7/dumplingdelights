@@ -23,33 +23,52 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child:Column(
-          children: [
-            Container(
-        height:480,
-        width:100,
-              child: Image(image: AssetImage(tMomoImages),fit: BoxFit.cover,),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/download.jpeg"),fit: BoxFit.cover,
+        )
+      ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 70,top:40),
+                child: Text("Dumpling Delights",
+                style: TextStyle(
+                  fontFamily: "Times New Roman",
+                  fontSize: 29,
+                  color: Colors.white70,
+                  fontWeight: FontWeight.w700,
 
-            ),
-       Container(
-          child: Text(
-            "Dumpling Delights", style: TextStyle(
-              fontFamily: "Times New Roman",fontSize: 25,fontWeight: FontWeight.w500),
+                ),),
 
+              ),
+              // Container(
+              //   alignment: Alignment.bottomCenter,
+              //   padding: EdgeInsets.only(left:20,bottom: 20),
+              //   child: ElevatedButton(
+              //     style: ElevatedButton.styleFrom(primary: Colors.green,
+              //     ),
+              //     onPressed: (){},
+              //
+              //
+              //     child: Text("Get Started"),
+              //
+              //   ),
+              // ),
+
+
+            ],
           ),
 
-         // decoration: BoxDecoration(
-         //     image: DecorationImage(image: AssetImage("images/download.jpeg"))
-         // ),
+        ),
 
-       ),
-   ] )
 
-    ),
-    );
 
+
+       );
   }
 }
 
