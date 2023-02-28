@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../model/product_model.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
 import '../../viewmodels/single_category_viewmodel.dart';
-import '../model/product_model.dart';
+
 
 class SingleCategoryScreen extends StatelessWidget {
   const SingleCategoryScreen({Key? key}) : super(key: key);
@@ -83,8 +84,8 @@ class _SingleCategoryBodyState extends State<SingleCategoryBody> {
                                 child: Text(
                                   singleCategoryVM.category!.categoryName.toString() ,
                                   style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w700
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w700
                                   ),
                                 )),
                           ),

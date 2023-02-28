@@ -1,13 +1,16 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
 import '../../viewmodels/auth_viewmodel.dart';
+
 import '../../viewmodels/category_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
+
 import '../../viewmodels/product_viewmodel.dart';
-import '../Screens/account/account_screen.dart';
+import '../account/account_screen.dart';
 import '../favorite/favorite_screen.dart';
 import '../home/home_screen.dart';
 class DashboardScreen extends StatefulWidget {
@@ -75,31 +78,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
           physics: const NeverScrollableScrollPhysics(),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        selectedLabelStyle: TextStyle(color: Colors.blue),
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 60,
+        backgroundColor: Colors.pink,
+        color: Color.fromARGB(255, 249, 237, 246),
         onTap: _itemTapped,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label:"Home"
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label:"Favorite"
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label:"Account"
-          ),
+        //IconButtons
+        items: <Widget>[
+          Icon(Icons.home,color: Colors.black,),
+          Icon(Icons.favorite_border,color: Colors.black,),
+          Icon(Icons.person,color: Colors.black,)
+
         ],
       ),
+
     );
   }
 

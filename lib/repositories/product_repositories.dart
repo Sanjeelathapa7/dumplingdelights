@@ -1,15 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 import '../model/product_model.dart';
+
 import '../services/firebase_service.dart';
 
 class ProductRepository {
   CollectionReference<ProductModel> productRef = FirebaseService.db.collection("products").withConverter<ProductModel>(
-        fromFirestore: (snapshot, _) {
-          return ProductModel.fromFirebaseSnapshot(snapshot);
-        },
-        toFirestore: (model, _) => model.toJson(),
-      );
+    fromFirestore: (snapshot, _) {
+      return ProductModel.fromFirebaseSnapshot(snapshot);
+    },
+    toFirestore: (model, _) => model.toJson(),
+  );
 
   Future<List<QueryDocumentSnapshot<ProductModel>>> getAllProducts() async {
     try {

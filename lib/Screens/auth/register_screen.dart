@@ -47,16 +47,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
           UserModel(
               email: _emailController.text,
               password: _passwordController.text,
-            phone: _phoneNumberController.text,
-            username: _usernameController.text,
-            name: _nameController.text
+              phone: _phoneNumberController.text,
+              username: _usernameController.text,
+              name: _nameController.text
           )).then((value) {
 
-            NotificationService.display(
-              title: "Welcome to this app",
-              body: "Hello ${_authViewModel.loggedInUser?.name},\n Thank you for registering in this application.",
-            );
-            Navigator.of(context).pushReplacementNamed("/dashboard");
+        NotificationService.display(
+          title: "Welcome to this app",
+          body: "Hello ${_authViewModel.loggedInUser?.name},\n Thank you for registering in this application.",
+        );
+        Navigator.of(context).pushReplacementNamed("/dashboard");
       })
           .catchError((e){
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message.toString())));
@@ -90,9 +90,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     validator: ValidateSignup.name,
                     keyboardType: TextInputType.name,
                     style: const TextStyle(
-                        fontFamily: 'WorkSansSemiBold',
+
                         fontSize: 16.0,
-                        color: Colors.black),
+                        color: Colors.pink),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
 
@@ -107,9 +107,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black,
                         size: 22.0,
                       ),
-                      hintText: 'First Name',
+                      hintText: 'Full Name',
                       hintStyle:
-                      TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
+                      TextStyle( fontSize: 17.0),
                     ),
                   ),
                   SizedBox(height: 10,),
@@ -118,9 +118,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     validator: ValidateSignup.phone,
                     keyboardType: TextInputType.phone,
                     style: const TextStyle(
-                        fontFamily: 'WorkSansSemiBold',
                         fontSize: 16.0,
-                        color: Colors.black),
+                        color: Colors.pink),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
 
@@ -135,7 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black,
                         size: 22.0,
                       ),
-                      hintText: 'Phone Number',
+                      hintText: 'Number',
                       hintStyle:
                       TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
                     ),
@@ -146,9 +145,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     validator: ValidateSignup.username,
                     keyboardType: TextInputType.text,
                     style: const TextStyle(
-                        fontFamily: 'WorkSansSemiBold',
                         fontSize: 16.0,
-                        color: Colors.black),
+                        color: Colors.pink),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
 
@@ -174,9 +172,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     keyboardType: TextInputType.emailAddress,
                     validator: ValidateSignup.emailValidate,
                     style: const TextStyle(
-                        fontFamily: 'WorkSansSemiBold',
+
                         fontSize: 16.0,
-                        color: Colors.black),
+                        color: Colors.pink),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
 
@@ -191,9 +189,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black,
                         size: 22.0,
                       ),
-                      hintText: 'Email Address',
+                      hintText: 'Email ',
                       hintStyle:
-                      TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
+                      TextStyle( fontSize: 17.0),
                     ),
                   ),
                   SizedBox(height: 10,),
@@ -202,9 +200,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: _obscureTextPassword,
                     validator: (String? value)=>ValidateSignup.password(value, _confirmPasswordController),
                     style: const TextStyle(
-                        fontFamily: 'WorkSansSemiBold',
                         fontSize: 16.0,
-                        color: Colors.black),
+                        color: Colors.pink),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)
@@ -219,7 +216,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       hintText: 'Password',
                       hintStyle: const TextStyle(
-                          fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
+                          fontSize: 17.0),
                       suffixIcon: GestureDetector(
                         onTap: () {
                           setState(() {
@@ -243,9 +240,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: _obscureTextPasswordConfirm,
                     validator: (String? value)=>ValidateSignup.password(value, _passwordController),
                     style: const TextStyle(
-                        fontFamily: 'WorkSansSemiBold',
                         fontSize: 16.0,
-                        color: Colors.black),
+                        color: Colors.pink),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)
@@ -282,16 +278,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                         style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.pink.shade100),
                           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
-                                  side: BorderSide(color: Colors.blue)
+                                  side: BorderSide(color: Colors.pink.shade200)
                               )
                           ),
                           padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 20)),
                         ),
                         onPressed: (){
-                            register();
+                          register();
                         }, child: Text("Sign Up", style: TextStyle(
                         fontSize: 20
                     ),)),
@@ -304,10 +301,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           color: Colors.grey.shade800
                       ),),
                       InkWell(
-                        onTap: (){
-                          Navigator.of(context).pop();
-                        },
-                          child: Text("Sign in", style: TextStyle(color: Colors.blue),))
+                          onTap: (){
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Sign in", style: TextStyle(color: Colors.pink),))
                     ],
                   ),
 
@@ -329,16 +326,16 @@ class ValidateSignup{
     return null;
   }
   static String? emailValidate(String? value){
-    
+
     final RegExp emailValid =
-      RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-      if(value == null || value.isEmpty ){
-        return "Email is required";
-      }
-      if(!emailValid.hasMatch(value)){
-        return "Please enter a valid email";
-      }
-      return null;
+    RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    if(value == null || value.isEmpty ){
+      return "Email is required";
+    }
+    if(!emailValid.hasMatch(value)){
+      return "Please enter a valid email";
+    }
+    return null;
   }
   static String? phone(String? value){
     if(value == null || value.isEmpty ){

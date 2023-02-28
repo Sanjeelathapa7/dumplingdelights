@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../model/category_model.dart';
-import '../model/product_model.dart';
-import '../viewmodels/auth_viewmodel.dart';
-import '../viewmodels/category_viewmodel.dart';
-import '../viewmodels/product_viewmodel.dart';
+import '../../model/category_model.dart';
+import '../../model/product_model.dart';
 
+import '../../viewmodels/auth_viewmodel.dart';
+import '../../viewmodels/category_viewmodel.dart';
+import '../../viewmodels/global_ui_viewmodel.dart';
+import '../../viewmodels/product_viewmodel.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -48,73 +49,73 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Consumer3<CategoryViewModel, AuthViewModel, ProductViewModel>(
         builder: (context, categoryVM, authVM, productVM, child) {
-      return Container(
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: Container(
-                margin: EdgeInsets.only(top: 60),
-                child: RefreshIndicator(
-                  onRefresh: refresh,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+          return Container(
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: RefreshIndicator(
+                      onRefresh: refresh,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
 
-                        Image.asset(
-                          "assets/images/banner.jpg",
-                          height: 200,
-                          width: double.infinity,
-                          fit: BoxFit.fill,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        WelcomeText(authVM),
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [...categoryVM.categories.map((e) => CategoryCard(e))],
+                            Image.asset(
+                              "assets/images/banner.jpg",
+                              height: 200,
+                              width: double.infinity,
+                              fit: BoxFit.fill,
                             ),
-                          ),
-                        ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            WelcomeText(authVM),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [...categoryVM.categories.map((e) => CategoryCard(e))],
+                                ),
+                              ),
+                            ),
 
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Container(
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                                margin: EdgeInsets.symmetric(horizontal: 10),
+                                child: Text(
+                                  "Products",
+                                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                                )),
+                            Container(
                               margin: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              "Products",
-                              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                            )),
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 10),
-                          child: GridView.count(
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                            childAspectRatio: 0.7,
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            crossAxisCount: 2,
-                            children: [
-                              ...productVM.products.map((e) => ProductCard(e))
-                            ],
-                          ),
+                              child: GridView.count(
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 10,
+                                childAspectRatio: 0.7,
+                                physics: NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                crossAxisCount: 2,
+                                children: [
+                                  ...productVM.products.map((e) => ProductCard(e))
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
+                HomeHeader(),
+              ],
             ),
-            HomeHeader(),
-          ],
-        ),
-      );
-    });
+          );
+        });
   }
 
   Widget HomeHeader() {
@@ -144,9 +145,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(child: Image.asset("assets/images/logo.png", height: 50, width: 50,)),
                 Expanded(
                     child: Align(
-                      alignment: Alignment.centerRight,
+                        alignment: Alignment.centerRight,
                         child: Container()
-                        // Icon(Icons.search, size: 30,)
+                      // Icon(Icons.search, size: 30,)
                     )),
               ],
             )));

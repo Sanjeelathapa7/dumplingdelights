@@ -1,9 +1,4 @@
-import 'package:dumplingdelights/product/add_product_screen.dart';
-import 'package:dumplingdelights/product/edit_product_screen.dart';
-import 'package:dumplingdelights/product/my_product_screen.dart';
-import 'package:dumplingdelights/product/single_product_screen.dart';
 import 'package:dumplingdelights/services/local_notification_service.dart';
-import 'package:dumplingdelights/splash_screen.dart';
 import 'package:dumplingdelights/viewmodels/auth_viewmodel.dart';
 import 'package:dumplingdelights/viewmodels/category_viewmodel.dart';
 import 'package:dumplingdelights/viewmodels/global_ui_viewmodel.dart';
@@ -12,27 +7,33 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:provider/provider.dart';
-
 import 'Screens/account/account_screen.dart';
 import 'Screens/auth/forget_password_screen.dart';
 import 'Screens/auth/login_screen.dart';
 import 'Screens/auth/register_screen.dart';
-import 'category/single_category_screen.dart';
-import 'dashboard/dashboard.dart';
+import 'Screens/category/single_category_screen.dart';
+import 'Screens/dashboard/dashboard.dart';
+import 'Screens/favorite/favorite_screen.dart';
+import 'Screens/home/home_screen.dart';
+import 'Screens/product/add_product_screen.dart';
+import 'Screens/product/edit_product_screen.dart';
+import 'Screens/product/my_product_screen.dart';
+import 'Screens/product/single_product_screen.dart';
+import 'package:get_storage/get_storage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    // options: FirebaseOptions(
-    //   apiKey: "AIzaSyDZopgwT3FXAHhsTs2c78yk-dw92lnnEK8",
-    //   appId: "1:350617005648:web:64921c07aa521069b4ab55",
-    //   messagingSenderId: "350617005648",
-    //   projectId: "my-app-name-3d643",
-    // ),
-  );
-  NotificationService.initialize();
-  runApp(MyApp());
+  await Firebase.initializeApp();
+  // await Firebase.initializeApp(
+  //   options: FirebaseOptions.currentPlatform,
+  // );
+  // await GetStorage.init();
+  // NotificationService.initialize();
+  runApp(MyApp(
+
+  ));
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
       child: GlobalLoaderOverlay(
         useDefaultLoading: false,
         overlayWidget: Center(
-          child: Image.asset("assets/images/loader.gif", height: 100, width: 100,),
+          child: Image.asset("assets/images/logo.png", height: 100, width: 100,),
         ),
         child: Consumer<GlobalUIViewModel>(
             builder: (context, loader, child) {
@@ -71,13 +72,14 @@ class MyApp extends StatelessWidget {
                   // or simply save your changes to "hot reload" in a Flutter IDE).
                   // Notice that the counter didn't reset back to zero; the application
                   // is not restarted.
-                  primarySwatch: Colors.blue,
+                  primarySwatch: Colors.pink,
+                  // textTheme: GoogleFonts.poppinsTextTheme(),
+
                 ),
-                initialRoute: "/profilescreen",
+                initialRoute: "/register",
                 routes: {
                   "/login": (BuildContext context)=>LoginScreen(),
-                  "/profilescreen":(BuildContext context)=> AccountScreen(),
-                  "/splash": (BuildContext context)=>SplashScreen(),
+                  // "/splash": (BuildContext context)=>SplashScreen(),
                   "/register": (BuildContext context)=>RegisterScreen(),
                   "/forget-password": (BuildContext context)=>ForgetPasswordScreen(),
                   "/dashboard": (BuildContext context)=>DashboardScreen(),
@@ -86,6 +88,9 @@ class MyApp extends StatelessWidget {
                   "/single-product": (BuildContext context)=>SingleProductScreen(),
                   "/single-category": (BuildContext context)=>SingleCategoryScreen(),
                   "/my-products": (BuildContext context)=>MyProductScreen(),
+                  "/homescreen": (BuildContext context)=>HomeScreen(),
+                  "/favorite": (BuildContext context)=>FavoriteScreen(),
+                  "/accscreen": (BuildContext context)=>AccountScreen(),
                 },
               );
             }

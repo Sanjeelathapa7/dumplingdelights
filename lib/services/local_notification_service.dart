@@ -47,7 +47,7 @@ class NotificationService{
 
 
   static Future<void> display(
-  {required String title, required String body,String? payload, BuildContext? buildContext, String? image, String? logo}
+      {required String title, required String body,String? payload, BuildContext? buildContext, String? image, String? logo}
       ) async {
     if(buildContext !=null){
       context = buildContext;

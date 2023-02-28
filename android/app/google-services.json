@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "411845033114",
+    "project_id": "dumplingdelights-3595e",
+    "storage_bucket": "dumplingdelights-3595e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411845033114:android:5430957d874dceab70f323",
+        "android_client_info": {
+          "package_name": "com.example.dumplingdelights"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411845033114-d321811jdk0nouqkc2h495s0fscs7s3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN7p2OY1j7U06oKynn1flBZ467XEHKeJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411845033114-d321811jdk0nouqkc2h495s0fscs7s3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

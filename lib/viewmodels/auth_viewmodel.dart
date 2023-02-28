@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import '../model/favorite_model.dart';
 import '../model/product_model.dart';
 import '../model/user_model.dart';
+
 import '../repositories/auth_repositories.dart';
 import '../repositories/favorite_repositories.dart';
 import '../repositories/product_repositories.dart';
 import '../services/firebase_service.dart';
+
 
 class AuthViewModel with ChangeNotifier {
   User? _user = FirebaseService.firebaseAuth.currentUser;

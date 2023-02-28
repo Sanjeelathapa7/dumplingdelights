@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../model/product_model.dart';
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
-import '../model/product_model.dart';
 
 class MyProductScreen extends StatefulWidget {
   const MyProductScreen({Key? key}) : super(key: key);

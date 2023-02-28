@@ -1,9 +1,10 @@
-import 'package:dumplingdelights/viewmodels/auth_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 import '../services/local_notification_service.dart';
+import '../viewmodels/auth_viewmodel.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -47,11 +48,11 @@ class _SplashScreenState extends State<SplashScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset("assets/images/splash.gif"),
-              SizedBox(height: 100,),
-              Text("Bazz", style: TextStyle(
-                fontSize: 22
-              ),)
+              // Image.asset("assets/images/aaaa.jpeg"),
+              // SizedBox(height: 100,),
+              // Text("Bazz", style: TextStyle(
+              //     fontSize: 22
+              // ),)
             ],
           ),
         ),
